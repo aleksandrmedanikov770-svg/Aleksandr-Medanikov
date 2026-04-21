@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн-библиотека учебных материалов</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 Онлайн-библиотека учебных материалов</h1>
+            <div id="auth-buttons">
+                <button onclick="showLoginModal()">Вход</button>
+                <button onclick="showRegisterModal()">Регистрация</button>
+            </div>
+            <div id="user-info" style="display:none">
+                <span id="username"></span>
+                <button onclick="logout()">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="Поиск по названию, автору..." onkeyup="searchMaterials()">
+        </div>
+        <div id="materials-container" class="materials-grid"></div>
+    </main>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Вход</h2>
+            <input type="email" id="loginEmail" placeholder="Email">
+            <input type="password" id="loginPassword" placeholder="Пароль">
+            <button onclick="login()">Войти</button>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Регистрация</h2>
+            <input type="text" id="regName" placeholder="Имя пользователя">
+            <input type="email" id="regEmail" placeholder="Email">
+            <input type="password" id="regPassword" placeholder="Пароль">
+            <input type="password" id="regPassword2" placeholder="Подтвердите пароль">
+            <button onclick="register()">Зарегистрироваться</button>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

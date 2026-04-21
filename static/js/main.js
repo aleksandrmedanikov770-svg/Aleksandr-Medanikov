@@ -30,6 +30,7 @@ async function register() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username, email, password, password2, role: 'student'})
     });
+
     
     const data = await response.json();
     if (response.ok) {
@@ -86,6 +87,10 @@ async function loadMaterials() {
 
 function displayMaterials(materials) {
     const container = document.getElementById('materials-container');
+    if (materials.length === 0) {
+        container.innerHTML = '<p>Нет материалов. Добавьте их через админку.</p>';
+        return;
+    }
     container.innerHTML = materials.map(m => `
         <div class="material-card">
             <h3>${m.title}</h3>
